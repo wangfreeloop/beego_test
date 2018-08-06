@@ -5,7 +5,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
 	_ "hello/routers"
-	"log"
+		"fmt"
 )
 
 var engine *xorm.Engine
@@ -14,7 +14,7 @@ func main() {
 	var err error
 	engine, err = xorm.NewEngine("mysql", "root:123456@/test?charset=utf8")
 	if err != nil {
-		log.Fatal("Fail to create xorm db engine : %v\n", err)
+		fmt.Println(err)
 	}
 	beego.Run()
 }
